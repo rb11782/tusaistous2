@@ -10,6 +10,14 @@ class WowsController < ApplicationController
   def index
   end
 
+  def show
+    @wow = Wow.find_by_id(params[:id])
+    if @wow.blank?
+    render plain: 'Not Found :(', status: :not_found
+    end
+  end
+
+
   def create
     @wow = current_user.wows.create(wow_params)
     if @wow.valid?

@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe WowsController, type: :controller do
+  describe "wows#show action" do
+    it "should successfully show the page if the wow is found" do
+       wow = FactoryBot.create(:wow)
+       get :show, params: { id: wow.id }
+       expect(response).to have_http_status(:success)
+    end
+
+    it "should return a 404 error if the wow is not found" do
+      get :show, params: { id: 'TACOCAT' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
+
+
+
   describe "wows#index action" do
     it "should successfully show the page" do
       get :index
