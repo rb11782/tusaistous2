@@ -17,14 +17,8 @@ RSpec.describe WowsController, type: :controller do
 
 
     it "should successfully show the new form" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryBot.create(:user)
       sign_in user
-
-
 
       get :new
       expect(response).to have_http_status(:success)
@@ -41,11 +35,7 @@ RSpec.describe WowsController, type: :controller do
 
 
     it "should successfully create a new wow in our database" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryBot.create(:user)
       sign_in user
 
 
@@ -58,11 +48,7 @@ RSpec.describe WowsController, type: :controller do
     end
 
     it "should properly deal with validation errors" do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword'
-      )
+      user = FactoryBot.create(:user)
       sign_in user
 
       wow_count = Wow.count
