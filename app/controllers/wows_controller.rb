@@ -9,7 +9,11 @@ class WowsController < ApplicationController
 
   def create
     @wow = Wow.create(wow_params)
-    redirect_to root_path
+    if @wow.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

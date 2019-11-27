@@ -25,6 +25,13 @@ RSpec.describe WowsController, type: :controller do
       expect(wow.comment).to eq ("Beautiful!")
       expect(wow.address).to eq ("21 Saturn Court, Sudbury, Ontario, Canada P3E 6B8")
     end
+
+    it "should properly deal with validation errors" do
+      post :create, params: { wow: { comment: '', address: '21 Saturn Court, Sudbury, Ontario, Canada P3E 6B8' } }
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(Wow.count).to eq 0
+    end
+
   end
 
 end
