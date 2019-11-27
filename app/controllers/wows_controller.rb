@@ -1,4 +1,7 @@
 class WowsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
+
   def new
     @wow = Wow.new
   end
@@ -8,7 +11,7 @@ class WowsController < ApplicationController
   end
 
   def create
-    @wow = Wow.create(wow_params)
+    @wow = current_user.wows.create(wow_params)
     if @wow.valid?
       redirect_to root_path
     else
