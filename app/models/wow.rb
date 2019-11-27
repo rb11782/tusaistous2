@@ -1,0 +1,2 @@
+class Wow < ApplicationRecord
+end
