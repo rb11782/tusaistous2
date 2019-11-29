@@ -157,8 +157,13 @@ RSpec.describe WowsController, type: :controller do
       user = FactoryBot.create(:user)
       sign_in user
 
+      post :create, params: {
+        wow: {
+        comment: 'Beautiful!', address: '21 Saturn Court, Sudbury, Ontario, Canada P3E 6B8',
+        picture: fixture_file_upload("/picture.png", 'image/png')
+        }
+      }    
 
-      post :create, params: { wow: { comment: 'Beautiful!', address: '21 Saturn Court, Sudbury, Ontario, Canada P3E 6B8' } }
       expect(response).to redirect_to root_path
       wow = Wow.last
       expect(wow.comment).to eq ("Beautiful!")

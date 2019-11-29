@@ -1,2 +1,26 @@
 
 <h1>Wows!</h1>
+
+<div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+  <% @wows.each do |wow| %>
+  <div class="card">
+    <div class="handle"><%= wow.user.email %></div>
+
+    <%= image_tag wow.picture.to_s, class: 'img-fluid' %>
+    <p>
+      <%= wow.comment %>
+      <br />
+      <br />
+      <%= wow.address %>
+    </p>
+
+    <div class="wow-actions float-right">
+      <% if current_user && current_user == wow.user %>
+        <%= link_to 'Edit', edit_wow_path(wow) %>
+        <%= link_to 'Destroy', wow_path(wow), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
+    </div>
+    <br class="clear-fix" />
+  </div>
+  <% end %>
+</div>

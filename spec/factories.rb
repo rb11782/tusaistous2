@@ -10,6 +10,7 @@ FactoryBot.define do
 
   factory :wow do
     comment { "Beautiful!" }
+    picture { fixture_file_upload(Rails.root.join('spec', 'fixtures', 'picture.png').to_s, 'image/png') }
     address { "21 Saturn Court, Sudbury, Ontario, Canada P3E 6B8" }
     association :user
   end
