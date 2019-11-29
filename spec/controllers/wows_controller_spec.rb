@@ -1,7 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe WowsController, type: :controller do
+  describe "wows#destroy action" do
+    it "should allow a user to destroy wows" do
+      wow = FactoryBot.create(:wow)
+      delete :destroy, params: { id: wow.id }
+      expect(response).to redirect_to root_path
+      wow = Wow.find_by_id(wow.id)
+      expect(wow).to eq nil
+    end
 
+    it "should return a 404 message if we cannot find a wow with the id that is specified" do
+      delete :destroy, params: { id: 'SPACEDUCK' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+  
   describe "wows#update action" do
     it "should allow users to successfully update wows" do
       wow = FactoryBot.create(:wow, comment: "Beautifuls!", address: "22 Saturn Court, Sudbury, Ontario, Canada P3E 6B8")

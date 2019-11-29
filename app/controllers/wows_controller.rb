@@ -1,6 +1,14 @@
 class WowsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
+  def destroy
+    @wow = Wow.find_by_id(params[:id])
+    return render_not_found if @wow.blank?
+    @wow.destroy
+    redirect_to root_path
+  end
+  
+
   def update
     @wow = Wow.find_by_id(params[:id])
     return render_not_found if @wow.blank?
