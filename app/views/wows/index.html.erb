@@ -1,8 +1,8 @@
 <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-<br />
-<h1>Wows!</h1>
-</div>
-
+  <br />
+  <br />
+  <h1>Wows!</h1>
+  <%= link_to 'My Profile', user_path(current_user) %></div>
 <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
   <% @wows.each do |wow| %>
   <div class="card">
@@ -24,6 +24,23 @@
       <% end %>
     </div>
     <br class="clear-fix" />
+
+  <div class="ratings">
+      <h3>Ratings</h3>
+      <% wow.ratings.each do |rating| %>
+          <div class="rating">
+            <span class="rating_handle">
+              <%= rating.user.email %><br />
+              <%= rating.comment %><h7>stars</h7>
+            </span>
+          </div>
+        <% end %>
+      <h4>Add a rating</h4>
+      <%= simple_form_for Rating.new, url: wow_ratings_path(wow) do |f| %>
+        <%= f.input :comment %>
+        <%= f.submit 'Add a Rating', class: 'my-btn' %>
+      <% end %>
+    </div>
   </div>
   <% end %>
 </div>

@@ -1,5 +1,9 @@
 
 FactoryBot.define do
+  factory :rating do
+    
+  end
+
   factory :user do
     sequence :email do |n|
       "dummyEmail#{n}@gmail.com"

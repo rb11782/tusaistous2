@@ -6,4 +6,5 @@ class Wow < ApplicationRecord
   after_validation :geocode
   mount_uploader :picture, PictureUploader
   belongs_to :user
+  has_many :ratings
 end

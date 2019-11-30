@@ -3,14 +3,16 @@
 
 
 <div class="booyah-box col-10 offset-1">
+  <%= image_tag @wow.picture.to_s, class: 'img-fluid' %>
   <br/><br/>
   <h2>Comment</h2>
   <i><%= @wow.comment %></i>
   <br/><br/>
   <h2>Address</h2>
   <i><%= @wow.address %></i>
+  <br/><br/>
 
-
+  
 
   <script>
     function initMap() {
@@ -62,5 +64,6 @@
     </script>
 
     <div id="map"></div>
+    <br/><br/>
     <% end %>
 </div>

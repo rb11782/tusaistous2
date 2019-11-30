@@ -1,0 +1,6 @@
+<div class="booyah-box">
+<h4><%= current_user.email %></h4>
+<h5>Member Since: <%= current_user.created_at.strftime("%B %d, %Y") %></h5>
+<h5><%=current_user.wows.count %> total wows</h5>
+<h5><%= current_user.ratings.count %> total ratings</h5>
+</div>
