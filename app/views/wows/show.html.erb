@@ -1,2 +1,66 @@
 
-<%= @wow.inspect %>
+
+
+
+<div class="booyah-box col-10 offset-1">
+  <br/><br/>
+  <h2>Comment</h2>
+  <i><%= @wow.comment %></i>
+  <br/><br/>
+  <h2>Address</h2>
+  <i><%= @wow.address %></i>
+
+
+
+  <script>
+    function initMap() {
+        var myLatLng = {lat: <%= @wow.latitude %>, lng: <%= @wow.longitude %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+
+    
+    <style>
+      #map {
+      height: 300px;
+    }
+    </style>
+   
+
+  <% if @wow.latitude.present? && @wow.longitude.present? %>
+
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: <%= @wow.latitude %>, lng: <%= @wow.longitude %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GEOCODER_API_KEY']%>&callback=initMap">
+    </script>
+
+    <div id="map"></div>
+    <% end %>
+</div>
