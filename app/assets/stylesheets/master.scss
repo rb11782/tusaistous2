@@ -5,7 +5,7 @@
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
-  background: #fff;
+  background: #FADBD8;
   border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   margin-top: 10px;
@@ -16,13 +16,13 @@
 
 
 body {
-  background-color: #fafafa;
+  background-color: #F9EBEA;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 .top-nav {
-  background-color: white;
-  border-bottom-color: #edeeee;
+  background-color: #FADBD8;
+  border-bottom-color: #C0392B;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   height: 70px;
@@ -31,7 +31,7 @@ body {
 
 .top-nav .add a {
   font-weight: bold;
-  color: #125688;
+  color: #C0392B;
   font-size: 16px;
   padding-left: 8px;
 }
@@ -41,13 +41,13 @@ body {
 }
 
 .brand {
-  color: #125688;
+  color: #C0392B;
   font-size: 30px;
   font-family: 'Pacifico', cursive;
 }
 
 .card {
-  background-color: #fff;
+  background-color: #D9C9C6;
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid #e8e8e8;
@@ -57,7 +57,7 @@ body {
 
 .handle {
   margin: 10px;
-  color: #125688;
+  color: #C0392B;
   font-weight: bold;
   font-size: 18px;
 }
@@ -81,7 +81,7 @@ input {
 }
 
 .my-btn {
-  background-color: #125688;
+  background-color: #C0392B;
   width: 100%;
   border: none;
   font-size: 24px;
@@ -109,3 +109,18 @@ input {
 .ratings {
   padding: 20px;
 }
+
+.location {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.location_handle {
+  color: #C0392B;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+
+
